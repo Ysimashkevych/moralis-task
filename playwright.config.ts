@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 import dotenv from 'dotenv';
 import path from 'path';
 dotenv.config({ path: path.resolve(__dirname, '.env') });
@@ -11,13 +11,11 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: 'line',
   use: {
+    browserName: 'chromium',
     baseURL: 'https://admin.moralis.io',
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure',
+    viewport: { width: 1920, height: 1080 },
+    locale: 'en-GB',
+    screenshot: 'only-on-failure',
   },
-  projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
-  ],
 });
