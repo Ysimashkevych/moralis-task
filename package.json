@@ -4,7 +4,9 @@
   "description": "Initial test for Moralis",
   "main": "index.js",
   "scripts": {
-    "test": "npm playwright test"
+    "test": "npm playwright test",
+    "ui:test": "npm run test ./src/ui/test",
+    "apii:test": "npm run test ./src/api/test"
   },
   "keywords": [],
   "author": "Yurii Simashkevych",
