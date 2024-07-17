@@ -1,0 +1,28 @@
+{
+  "name": "moralis",
+  "version": "1.0.0",
+  "description": "Initial test for Moralis",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm playwright test"
+  },
+  "keywords": [],
+  "author": "Yurii Simashkevych",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.45.2",
+    "@types/node": "^20.14.10",
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "@typescript-eslint/parser": "^7.16.1",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
