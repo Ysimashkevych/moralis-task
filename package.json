@@ -4,7 +4,7 @@
   "description": "Initial test for Moralis",
   "main": "index.js",
   "scripts": {
-    "test": "npm playwright test",
+    "test": "npx playwright test",
     "ui:test": "npm run test ./src/ui/test",
     "apii:test": "npm run test ./src/api/test"
   },
