@@ -13,6 +13,10 @@ export class LoginPage {
         this.logInButton = page.locator('button', { hasText: 'Log In' });
     }
 
+    async acceptAllCookies() {
+        this.page.locator('#cookiescript_accept').click();
+    }
+
     async setEmail(email: string) {
         await this.emailInput.fill(email);
     };
