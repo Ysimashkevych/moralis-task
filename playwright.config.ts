@@ -5,11 +5,12 @@ dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 export default defineConfig({
   testDir: './src',
-  outputDir: './output',
+  outputDir: './test-results',
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'line',
+  timeout: 60000,
   use: {
     browserName: 'chromium',
     baseURL: 'https://admin.moralis.io',
@@ -17,5 +18,7 @@ export default defineConfig({
     viewport: { width: 1920, height: 1080 },
     locale: 'en-GB',
     screenshot: 'only-on-failure',
+    navigationTimeout: 5000,
+    headless: false,
   },
 });
