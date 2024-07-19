@@ -13,19 +13,37 @@ export class LoginPage {
         this.logInButton = page.locator('button', { hasText: 'Log In' });
     }
 
-    async acceptAllCookies() {
+    public async acceptAllCookies() {
         this.page.locator('#cookiescript_accept').click();
     }
 
-    async setEmail(email: string) {
+    public async setEmail(email: string) {
         await this.emailInput.fill(email);
     };
 
-    async setPassword(password: string) {
+    public async setPassword(password: string) {
         await this.passwordInput.fill(password);
     };
 
-    async clickLogin() {
+    public async clickLogin() {
         await this.logInButton.click();
     };
+
+    /**
+     * Performs login into application with accepting all cookies, setting email and password from config, and setting api key received on login to process "API_KEY_BROWSER" property
+     */
+    public async login() {
+        const email = process.env.USER_NAME || '';
+        const password = process.env.PASSWORD || '';
+    
+        await this.page.goto('/');
+        await this.acceptAllCookies();
+        await this.setEmail(email);
+        await this.setPassword(password);
+        const loginPromise = this.page.waitForResponse(/.*\/auth\/login/);
+        await this.clickLogin();
+        const loginResponce = await loginPromise;
+        const body = await loginResponce.json();
+        process.env['API_KEY_BROWSER'] = body['access_token'];
+    }
 }
