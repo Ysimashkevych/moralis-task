@@ -21,4 +21,7 @@ export default defineConfig({
     navigationTimeout: 5000,
     headless: false,
   },
+  expect: {
+    timeout: 5000,
+  }
 });
