@@ -14,14 +14,15 @@ export class DashboardCommon {
 
     private getAccessToken() {
         const apiToken = process.env.API_KEY_BROWSER;
-        if (!apiToken) throw new Error('No API token configured in the config file')
+        if (!apiToken) throw new Error('No API token: "process.env.API_KEY_BROWSER" configured. Most probably was not set during login.')
         return apiToken;
     }
 
-    public async sendRequest(method: Method, url: string) {
+    public async sendRequest(method: Method, url: string, data?: any) {
         const options = this.requestOptions;
         options.url = url;
         options.method = method;
+        options.data = data;
         const response = await axios(options)
             .then((response) => response)
             .catch((error) => {
