@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "ui:test": "npm run test ./src/ui/test",
-    "apii:test": "npm run test ./src/api/test"
+    "ui:test": "npm run test src/ui/tests/",
+    "api:test": "npm run test src/api/tests/"
   },
   "keywords": [],
   "author": "Yurii Simashkevych",
@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "axios": "^1.7.2",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "moralis": "^2.26.9"
   }
 }
