@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npx playwright test",
     "ui:test": "npm run test src/ui/tests/",
-    "api:test": "npm run test src/api/tests/"
+    "nft-api:test": "npm run test src/api/tests/nft-api/",
+    "rpc-nodes-api:test": "npm run test src/api/tests/rpc-nodes/"
   },
   "keywords": [],
   "author": "Yurii Simashkevych",
