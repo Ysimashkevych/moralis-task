@@ -7,7 +7,7 @@ export const options = {
 };
 
 export default async function () {
-  const url = `https://site1.moralis-nodes.com/eth/a648cb2c460e4ede80ec94a39c624b75`;
+  const url = `https://site1.moralis-nodes.com/${__ENV.CHAIN_KEY}`;
   const payload = JSON.stringify({
     "jsonrpc": "2.0",
     "id": 1,
